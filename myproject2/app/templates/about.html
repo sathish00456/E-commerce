@@ -1,0 +1,318 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>About Us</title>
+    <link rel="stylesheet" href="{% static 'style.css' %}">
+
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600&display=swap');
+
+
+        /* General Styles */
+body {
+    
+    font-family: 'Arial', sans-serif;
+    margin: 0;
+    padding: 0;
+    background-color: #f4f4f4;
+    color: #333;
+    line-height: 1.6;
+}
+
+.container {
+    width: 80%;
+    margin: auto;
+    overflow: hidden;
+}
+
+/* Hero Section */
+.hero {
+    
+    height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    color: #fff;
+    background-image: url("{% static 'v.jpg' %}");
+    background-size: cover;  
+    background-position: center; 
+    background-repeat: no-repeat; 
+    background-attachment: fixed;
+}
+
+.hero h1 {
+    font-size: 3rem;
+    margin-bottom: 0.5rem;
+}
+
+.hero p {
+    font-size: 1.2rem;
+    margin-bottom: 1.5rem;
+    opacity: 0.8;
+}
+
+/* Introduction Section */
+.about-intro, .mission, .team {
+    padding: 4rem 0;
+    background-color: #fff;
+    text-align: center;
+}
+
+.about-intro h2, .mission h2 {
+    font-size: 2.5rem;
+    margin-bottom: 1.5rem;
+    color: #333;
+}
+
+.about-intro p, .mission p {
+    font-size: 1.1rem;
+    max-width: 700px;
+    margin: 0 auto;
+    color: #666;
+}
+
+/* Team Section */
+.team {
+    background-color: #f9f9f9;
+}
+
+.team-grid {
+    display: flex;
+    justify-content: space-between;
+    gap: 2rem;
+}
+
+.team-member {
+    background-color: #fff;
+    padding: 1.5rem;
+    border-radius: 10px;
+    box-shadow: 0 4px 6px rgba(0,0,0,0.1);
+    text-align: center;
+    flex: 1;
+}
+
+.team-member img {
+    width: 100px;
+    height: 100px;
+    border-radius: 50%;
+    margin-bottom: 1rem;
+}
+
+.team-member h3 {
+    font-size: 1.5rem;
+    margin-bottom: 0.5rem;
+    color: #333;
+}
+
+.team-member p {
+    font-size: 1rem;
+    color: #777;
+}
+
+/* Call to Action Footer */
+.cta-footer {
+    background-color: #333;
+    color: #fff;
+    padding: 3rem 0;
+    text-align: center;
+}
+
+.cta-footer h2 {
+    font-size: 2.5rem;
+    margin-bottom: 1rem;
+}
+
+.cta-footer p {
+    font-size: 1.2rem;
+    margin-bottom: 2rem;
+}
+
+.cta-footer .btn {
+    background-color: #ff5733;
+    color: #fff;
+    padding: 0.8rem 2rem;
+    border-radius: 5px;
+    text-decoration: none;
+    font-size: 1.2rem;
+}
+
+.cta-footer .btn:hover {
+    background-color: #ff451a;
+}
+
+/* Responsive Styles */
+@media (max-width: 768px) {
+    .team-grid {
+        flex-direction: column;
+    }
+
+    .hero h1 {
+        font-size: 2.5rem;
+    }
+
+    .hero p {
+        font-size: 1rem;
+    }
+}
+
+    </style>
+</head>
+
+<body>
+
+
+    <nav>
+        <div class="nav-bar">
+            <i class='bx bx-menu sidebarOpen' ></i>
+            <span class="logo navLogo"><a href="#">e-commerce</a></span>
+
+            <div class="menu">
+                <div class="logo-toggle">
+                    <span class="logo"><a href="#">e-commerce</a></span>
+                    <i class='bx bx-x siderbarClose'></i>
+                </div>
+
+                <ul class="nav-links">
+                    <li><a href="{% url 'home' %}"><- Home</a></li>
+                    <li><a href="#">product</a></li>
+                    <li><a href="#">About</a></li>
+                    <li><a href="#">Services</a></li>
+                    <li><a href="#">Contact</a></li>
+                </ul>
+            </div>
+
+            <div class="darkLight-searchBox">
+                <div class="dark-light">
+                    <i class='bx bx-moon moon'></i>
+                    <i class='bx bx-sun sun'></i>
+                </div>
+
+                <div class="searchBox">
+                   <div class="searchToggle">
+                    <i class='bx bx-x cancel'></i>
+                    <i class='bx bx-search search'></i>
+                   </div>
+
+                    <div class="search-field">
+                        <input type="text" placeholder="Search...">
+                        <i class='bx bx-search'></i>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Header Section -->
+    <header class="hero">
+        <div class="hero-content">
+            <h1>About Our Company</h1>
+            <p>Innovating the Future, One Step at a Time</p>
+        </div>
+    </header>
+
+    <!-- Introduction Section -->
+    <section class="about-intro">
+        <div class="container">
+            <h2>Who We Are</h2>
+            <p>We are a passionate team dedicated to delivering the best products and services in our industry. With a focus on innovation, quality, and customer satisfaction, we are committed to pushing the boundaries of what’s possible.</p>
+        </div>
+    </section>
+
+    <!-- Mission Section -->
+    <section class="mission">
+        <div class="container">
+            <h2>Our Mission</h2>
+            <p>Our mission is to create cutting-edge solutions that empower people and businesses around the world. We believe in technology’s potential to solve the world’s greatest challenges, and we work tirelessly to make that vision a reality.</p>
+        </div>
+    </section>
+
+    <!-- Team Section -->
+    <section class="team">
+        <div class="container">
+            <h2>Meet the Team</h2>
+            <div class="team-grid">
+                 <div class="team-member">
+                    
+                    <h3>John Doe</h3>
+                    <p>CEO & Founder</p>
+                </div>
+                <div class="team-member">
+                                    <h3>Jane Smith</h3>
+                    <p>Chief Technology Officer</p>
+                </div>
+                <div class="team-member">
+                    
+                    <h3>Mary Johnson</h3>
+                    <p>Lead Designer</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer/Call to Action -->
+    <footer class="cta-footer">
+        <div class="container">
+            <h2>Ready to Work with Us?</h2>
+            <p>Contact us today and let's start building something great together.</p>
+            <a href="contact.html" class="btn">Contact Us</a>
+        </div>
+    </footer>
+
+    <script>
+        const body = document.querySelector("body"),
+      nav = document.querySelector("nav"),
+      modeToggle = document.querySelector(".dark-light"),
+      searchToggle = document.querySelector(".searchToggle"),
+      sidebarOpen = document.querySelector(".sidebarOpen"),
+      siderbarClose = document.querySelector(".siderbarClose");
+
+      let getMode = localStorage.getItem("mode");
+          if(getMode && getMode === "dark-mode"){
+            body.classList.add("dark");
+          }
+
+// js code to toggle dark and light mode
+      modeToggle.addEventListener("click" , () =>{
+        modeToggle.classList.toggle("active");
+        body.classList.toggle("dark");
+
+        // js code to keep user selected mode even page refresh or file reopen
+        if(!body.classList.contains("dark")){
+            localStorage.setItem("mode" , "light-mode");
+        }else{
+            localStorage.setItem("mode" , "dark-mode");
+        }
+      });
+
+// js code to toggle search box
+        searchToggle.addEventListener("click" , () =>{
+        searchToggle.classList.toggle("active");
+      });
+ 
+      
+//   js code to toggle sidebar
+sidebarOpen.addEventListener("click" , () =>{
+    nav.classList.add("active");
+});
+
+body.addEventListener("click" , e =>{
+    let clickedElm = e.target;
+
+    if(!clickedElm.classList.contains("sidebarOpen") && !clickedElm.classList.contains("menu")){
+        nav.classList.remove("active");
+    }
+});
+
+
+// Simple function to handle button click
+function learnMore() {
+  alert('You clicked Learn More!');
+}
+
+    </script>
+</body>
+</html>

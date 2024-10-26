@@ -1,0 +1,292 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Our E-Commerce Services</title>
+    <link rel="stylesheet" href="{% static 'style.css' %}">
+<style>
+    /* General Styles */
+body {
+    font-family: 'Arial', sans-serif;
+    margin: 0;
+    padding: 0;
+    background-color: #f4f4f4;
+    color: #333;
+}
+
+.container {
+    width: 80%;
+    margin: auto;
+    overflow: hidden;
+}
+
+/* Header Section */
+.services-header {
+    background: #333;
+    color: #fff;
+    text-align: center;
+    padding: 4rem 0;
+}
+
+.services-header h1 {
+    font-size: 2.5rem;
+    margin-bottom: 0.5rem;
+}
+
+.services-header p {
+    font-size: 1.2rem;
+    opacity: 0.8;
+}
+
+/* Services Section */
+.services-section {
+    padding: 4rem 0;
+    background-color: #fff;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+}
+
+.service {
+    background-color: #f9f9f9;
+    border-radius: 10px;
+    box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+    margin: 1.5rem;
+    text-align: center;
+    padding: 2rem;
+    flex: 1 1 calc(30% - 3rem);
+}
+
+.service img {
+    max-width: 100%;
+    height: 500px;
+    border-radius: 10px;
+    margin-bottom: 1rem;
+}
+
+.service h2 {
+    font-size: 1.8rem;
+    margin: 1rem 0;
+    color: #333;
+}
+
+.service p {
+    font-size: 1rem;
+    color: #666;
+}
+
+.service .btn {
+    background-color: #ff5733;
+    color: #fff;
+    padding: 0.8rem 1.5rem;
+    border-radius: 5px;
+    text-decoration: none;
+    transition: background 0.3s;
+}
+
+.service .btn:hover {
+    background-color: #ff451a;
+}
+
+/* Call to Action Section */
+.cta-section {
+    background-color: #333;
+    color: #fff;
+    padding: 3rem 0;
+    text-align: center;
+}
+
+.cta-section h2 {
+    font-size: 2rem;
+    margin-bottom: 1rem;
+}
+
+.cta-section p {
+    font-size: 1.2rem;
+    margin-bottom: 2rem;
+}
+
+.cta-section .btn {
+    background-color: #ff5733;
+    color: #fff;
+    padding: 0.8rem 2rem;
+    border-radius: 5px;
+    text-decoration: none;
+    font-size: 1.2rem;
+}
+
+.cta-section .btn:hover {
+    background-color: #ff451a;
+}
+
+/* Responsive Styles */
+@media (max-width: 768px) {
+    .service {
+        flex: 1 1 calc(100% - 3rem);
+    }
+
+    .services-header h1 {
+        font-size: 2.5rem;
+    }
+
+    .services-header p {
+        font-size: 1rem;
+    }
+}
+
+</style>
+</head>
+
+<body>
+    <nav>
+        <div class="nav-bar">
+            <i class='bx bx-menu sidebarOpen' ></i>
+            <span class="logo navLogo"><a href="#">e-commerce</a></span>
+
+            <div class="menu">
+                <div class="logo-toggle">
+                    <span class="logo"><a href="#">e-commerce/a></span>
+                    <i class='bx bx-x siderbarClose'></i>
+                </div>
+
+                <ul class="nav-links">
+                    <li><a href="{% url 'home' %}"><- Home</a></li>
+                    <li><a href="product.html">product</a></li>
+                    <li><a href="#">About</a></li>
+                    <li><a href="#">Services</a></li>
+                    <li><a href="#">Contact</a></li>
+                </ul>
+            </div>
+
+            <div class="darkLight-searchBox">
+                <div class="dark-light">
+                    <i class='bx bx-moon moon'></i>
+                    <i class='bx bx-sun sun'></i>
+                </div>
+
+                <div class="searchBox">
+                   <div class="searchToggle">
+                    <i class='bx bx-x cancel'></i>
+                    <i class='bx bx-search search'></i>
+                   </div>
+
+                    <div class="search-field">
+                        <input type="text" placeholder="Search...">
+                        <i class='bx bx-search'></i>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </nav>
+    <br>
+   
+    <!-- Header Section -->
+    <header class="services-header">
+        <h1>Our E-Commerce Services</h1>
+        <p>Tailored solutions to elevate your online business.</p>
+    </header>
+
+    <!-- Services Section -->
+    <section class="services-section">
+        <div class="container">
+            <div class="service">
+                <img src="{% static 'productsource.avif' %}" alt="Product Sourcing">
+                <h2>Product Sourcing</h2>
+                <p>We help you find reliable suppliers and quality products at competitive prices.</p><br>
+                <a href="#" class="btn">Learn More</a>
+            </div>
+
+            <div class="service">
+                <img src="{% static 'inv.avif' %}" alt="Inventory Management">
+                <h2>Inventory Management</h2>
+                <p>Streamlined inventory solutions to keep track of your stock efficiently.</p><br>
+                <a href="#" class="btn">Learn More</a>
+            </div>
+
+            <div class="service">
+                <img src="{% static 'ss.avif' %}" alt="Shipping Solutions">
+                <h2>Shipping Solutions</h2>
+                <p>Flexible shipping options and strategies to enhance customer satisfaction.</p><br>
+                <a href="#" class="btn">Learn More</a>
+            </div>
+
+            <div class="service">
+                <img src="{% static 'cs.avif' %}" alt="Customer Support">
+                <h2>Customer Support</h2>
+                <p>24/7 customer support services to ensure your customers are always satisfied.</p><br>
+                <a href="#" class="btn">Learn More</a>
+            </div>
+
+            <div class="service">
+                <img src="{% static 'dm.avif' %}" alt="Digital Marketing">
+                <h2>Digital Marketing</h2>
+                <p>Comprehensive marketing strategies to drive traffic and sales to your store.</p><br>
+                <a href="#" class="btn">Learn More</a>
+            </div>
+        </div>
+    </section>
+
+    <!-- Call to Action Section -->
+    <section class="cta-section">
+        <div class="container">
+            <h2>Ready to Enhance Your E-Commerce Experience?</h2>
+            <p>Contact us today to discuss how we can support your business growth.</p>
+            <a href="contact" class="btn">Get in Touch</a>
+        </div>
+    </section>
+    <script>
+        const body = document.querySelector("body"),
+      nav = document.querySelector("nav"),
+      modeToggle = document.querySelector(".dark-light"),
+      searchToggle = document.querySelector(".searchToggle"),
+      sidebarOpen = document.querySelector(".sidebarOpen"),
+      siderbarClose = document.querySelector(".siderbarClose");
+
+      let getMode = localStorage.getItem("mode");
+          if(getMode && getMode === "dark-mode"){
+            body.classList.add("dark");
+          }
+
+// js code to toggle dark and light mode
+      modeToggle.addEventListener("click" , () =>{
+        modeToggle.classList.toggle("active");
+        body.classList.toggle("dark");
+
+        // js code to keep user selected mode even page refresh or file reopen
+        if(!body.classList.contains("dark")){
+            localStorage.setItem("mode" , "light-mode");
+        }else{
+            localStorage.setItem("mode" , "dark-mode");
+        }
+      });
+
+// js code to toggle search box
+        searchToggle.addEventListener("click" , () =>{
+        searchToggle.classList.toggle("active");
+      });
+ 
+      
+//   js code to toggle sidebar
+sidebarOpen.addEventListener("click" , () =>{
+    nav.classList.add("active");
+});
+
+body.addEventListener("click" , e =>{
+    let clickedElm = e.target;
+
+    if(!clickedElm.classList.contains("sidebarOpen") && !clickedElm.classList.contains("menu")){
+        nav.classList.remove("active");
+    }
+});
+
+
+// Simple function to handle button click
+function learnMore() {
+  alert('You clicked Learn More!');
+}
+
+    </script>
+</body>
+</html>

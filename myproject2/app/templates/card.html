@@ -1,0 +1,207 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Your Cart</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f9f9f9;
+            margin: 0;
+            padding: 20px;
+        }
+
+        h1 {
+            text-align: center;
+            color: #333;
+        }
+
+        .cart-container {
+            max-width: 800px;
+            margin: 0 auto;
+            background-color: #fff;
+            padding: 20px;
+            border-radius: 10px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+        }
+
+        ul {
+            list-style-type: none;
+            padding: 0;
+        }
+
+        li {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            border-bottom: 1px solid #ddd;
+            padding: 15px 0;
+        }
+
+        li:last-child {
+            border-bottom: none;
+        }
+
+        .cart-item {
+            display: flex;
+            align-items: center;
+        }
+
+        .cart-item img {
+            width: 80px;
+            height: 80px;
+            object-fit: cover;
+            margin-right: 15px;
+            border-radius: 8px;
+        }
+
+        .cart-item-details {
+            flex-grow: 1;
+        }
+
+        .product-name {
+            font-size: 18px;
+            font-weight: bold;
+            color: #333;
+        }
+
+        .product-price {
+            font-size: 16px;
+            color: #666;
+            margin-top: 5px;
+        }
+
+        .cart-quantity {
+            font-size: 16px;
+            font-weight: bold;
+            color: #28a745;
+        }
+
+        .delete-button form {
+            display: inline;
+        }
+
+        .delete-button button {
+            background-color: #dc3545;
+            color: #fff;
+            padding: 5px 10px;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+        }
+
+        .delete-button button:hover {
+            background-color: #c82333;
+        }
+
+        .checkout-link {
+            display: block;
+            text-align: right;
+            margin-top: 20px;
+        }
+
+        .checkout-link a {
+            background-color: #007BFF;
+            color: #fff;
+            padding: 10px 15px;
+            text-decoration: none;
+            border-radius: 5px;
+        }
+
+        .checkout-link a:hover {
+            background-color: #0056b3;
+        }
+    </style>
+</head>
+<body>
+    <h1>Your Cart</h1>
+
+    <div class="cart-container">
+        <ul>
+            {% for item in cart_items %}
+            <li>
+                <div class="cart-item">
+                    {% if item.product.image %}
+                    <!-- Product Image -->
+                    <img src="{{ item.product.image.url }}" alt="{{ item.product.name }} Image">
+                    {% endif %}
+                    <div class="cart-item-details">
+                        <!-- Product Name -->
+                        <div class="product-name">{{ item.product.name }}</div>
+                        <!-- Product Price -->
+                        <div class="product-price">${{ item.product.price }}</div>
+                    </div>
+                </div>
+                <!-- Product Quantity -->
+                <div class="cart-quantity">
+                    x {{ item.quantity }}
+                </div>
+                <!-- Delete Button -->
+                <div class="delete-button">
+                    <form method="POST" action="{% url 'delete_cart_item' item.id %}">
+                        {% csrf_token %}
+                        <button type="submit">Delete</button>
+                    </form>
+                </div>
+            </li>
+            {% endfor %}
+        </ul>
+
+        <div class="checkout-link">
+            <a href="{% url 'checkout' %}">Proceed to Checkout</a>
+        </div>
+    </div>
+    <script>
+        const body = document.querySelector("body"),
+      nav = document.querySelector("nav"),
+      modeToggle = document.querySelector(".dark-light"),
+      searchToggle = document.querySelector(".searchToggle"),
+      sidebarOpen = document.querySelector(".sidebarOpen"),
+      siderbarClose = document.querySelector(".siderbarClose");
+
+      let getMode = localStorage.getItem("mode");
+          if(getMode && getMode === "dark-mode"){
+            body.classList.add("dark");
+          }
+
+// js code to toggle dark and light mode
+      modeToggle.addEventListener("click" , () =>{
+        modeToggle.classList.toggle("active");
+        body.classList.toggle("dark");
+
+        // js code to keep user selected mode even page refresh or file reopen
+        if(!body.classList.contains("dark")){
+            localStorage.setItem("mode" , "light-mode");
+        }else{
+            localStorage.setItem("mode" , "dark-mode");
+        }
+      });
+
+// js code to toggle search box
+        searchToggle.addEventListener("click" , () =>{
+        searchToggle.classList.toggle("active");
+      });
+ 
+      
+//   js code to toggle sidebar
+sidebarOpen.addEventListener("click" , () =>{
+    nav.classList.add("active");
+});
+
+body.addEventListener("click" , e =>{
+    let clickedElm = e.target;
+
+    if(!clickedElm.classList.contains("sidebarOpen") && !clickedElm.classList.contains("menu")){
+        nav.classList.remove("active");
+    }
+});
+
+
+// Simple function to handle button click
+function learnMore() {
+  alert('You clicked Learn More!');
+}
+
+    </script>
+</body>
+</html>

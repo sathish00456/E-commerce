@@ -1,0 +1,20 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Order Confirmation</title>
+</head>
+<body>
+    <h1>Thank you for your order!</h1>
+    <p>Your order #{{ order.id }} has been placed successfully.</p>
+
+    <h3>Order Summary</h3>
+    <ul>
+        {% csrf_token %}
+        {% for item in OrderItems %}
+        {% endfor %}
+    </ul>
+    <p>order id {{order.id}}</p>
+    <p>Total: ${{ order.total_price }}</p>
+</body>
+</html>
